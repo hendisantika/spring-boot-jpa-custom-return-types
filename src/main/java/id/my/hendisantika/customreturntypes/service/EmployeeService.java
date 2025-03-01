@@ -2,6 +2,7 @@ package id.my.hendisantika.customreturntypes.service;
 
 import id.my.hendisantika.customreturntypes.dto.EmployeeDTO;
 import id.my.hendisantika.customreturntypes.entity.Employee;
+import id.my.hendisantika.customreturntypes.projection.EmployeeProjection;
 import id.my.hendisantika.customreturntypes.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,10 @@ public class EmployeeService {
     // Get Employees as DTO
     public List<EmployeeDTO> getEmployeesAsDTO(String department) {
         return employeeRepository.findEmployeeDTOByDepartment(department);
+    }
+
+    // Get Employees as Projection
+    public List<EmployeeProjection> getEmployeesAsProjection(String department) {
+        return employeeRepository.findByDepartmentOrderByNameAsc(department);
     }
 }
