@@ -17,12 +17,12 @@ public class SpringBootJpaCustomReturnTypesApplication {
     @Bean
     public CommandLineRunner demo(EmployeeRepository employeeRepository) {
         return (args) -> {
-            employeeRepository.save(new Employee(1L, "Itadori Yuji", "yuji@yopmail.com", "IT"));
-            employeeRepository.save(new Employee(2L, "Naobara Kugisaki", "naobara@yopmail.com", "Marketing"));
-            employeeRepository.save(new Employee(3L, "Megumi Fushiguro", "megumi@yopmail.com", "IT"));
-            employeeRepository.save(new Employee(4L, "Satoru Gojo", "gojo@yopmail.com", "IT"));
-            employeeRepository.save(new Employee(5L, "Ryoumen Sukuna", "sukuna@yopmail.com", "Sales"));
-            employeeRepository.save(new Employee(5L, "Suguru Geto", "geto@yopmail.com", "Finance"));
+            employeeRepository.save(new Employee("Itadori Yuji", "yuji@yopmail.com", "IT"));
+            employeeRepository.save(new Employee("Naobara Kugisaki", "naobara@yopmail.com", "Marketing"));
+            employeeRepository.save(new Employee("Megumi Fushiguro", "megumi@yopmail.com", "IT"));
+            employeeRepository.save(new Employee("Satoru Gojo", "gojo@yopmail.com", "IT"));
+            employeeRepository.save(new Employee("Ryoumen Sukuna", "sukuna@yopmail.com", "Sales"));
+            employeeRepository.save(new Employee("Suguru Geto", "geto@yopmail.com", "Finance"));
         };
     }
 }
