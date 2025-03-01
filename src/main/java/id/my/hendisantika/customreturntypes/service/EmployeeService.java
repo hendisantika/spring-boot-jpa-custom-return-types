@@ -1,5 +1,6 @@
 package id.my.hendisantika.customreturntypes.service;
 
+import id.my.hendisantika.customreturntypes.dto.EmployeeDTO;
 import id.my.hendisantika.customreturntypes.entity.Employee;
 import id.my.hendisantika.customreturntypes.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -29,4 +30,8 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
+    // Get Employees as DTO
+    public List<EmployeeDTO> getEmployeesAsDTO(String department) {
+        return employeeRepository.findEmployeeDTOByDepartment(department);
+    }
 }
