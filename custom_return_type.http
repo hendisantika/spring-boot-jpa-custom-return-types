@@ -1,0 +1,105 @@
+# Custom return type
+
+### With custom return type, you can return any object as a response.
+
+### Regular return type
+GET http://localhost:8080/api/employees
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Itadori Yuji",
+    "email": "yuji@yopmail.com",
+    "department": "IT"
+  },
+  {
+    "id": 2,
+    "name": "Naobara Kugisaki",
+    "email": "naobara@yopmail.com",
+    "department": "Marketing"
+  },
+  {
+    "id": 3,
+    "name": "Megumi Fushiguro",
+    "email": "megumi@yopmail.com",
+    "department": "IT"
+  },
+  {
+    "id": 4,
+    "name": "Satoru Gojo",
+    "email": "gojo@yopmail.com",
+    "department": "IT"
+  },
+  {
+    "id": 5,
+    "name": "Ryoumen Sukuna",
+    "email": "sukuna@yopmail.com",
+    "department": "Sales"
+  },
+  {
+    "id": 6,
+    "name": "Suguru Geto",
+    "email": "geto@yopmail.com",
+    "department": "Finance"
+  }
+]
+```
+
+### Get Employees as DTO
+GET http://localhost:8080/api/employees/dto?department=IT
+
+Response:
+
+```json
+[
+  {
+    "name": "Itadori Yuji",
+    "email": "yuji@yopmail.com"
+  },
+  {
+    "name": "Megumi Fushiguro",
+    "email": "megumi@yopmail.com"
+  },
+  {
+    "name": "Satoru Gojo",
+    "email": "gojo@yopmail.com"
+  }
+]
+```
+
+### Get Employees as projection
+GET http://localhost:8080/api/employees/projection?department=IT
+
+Response:
+
+```json
+[
+  {
+    "name": "Itadori Yuji",
+    "email": "yuji@yopmail.com"
+  },
+  {
+    "name": "Megumi Fushiguro",
+    "email": "megumi@yopmail.com"
+  },
+  {
+    "name": "Satoru Gojo",
+    "email": "gojo@yopmail.com"
+  }
+]
+```
+
+### Get Employees as stream
+GET http://localhost:8080/api/employees/stream?department=Finance
+
+Response:
+
+```json
+[
+  {
+    "name": "Suguru Geto",
+    "email": "geto@yopmail.com"
+  }
+]
+```

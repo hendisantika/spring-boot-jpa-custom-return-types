@@ -6,6 +6,7 @@ import id.my.hendisantika.customreturntypes.projection.EmployeeProjection;
 import id.my.hendisantika.customreturntypes.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,6 +44,7 @@ public class EmployeeService {
     }
 
     // Get Employees as Stream
+    @Transactional(readOnly = true)
     public List<EmployeeDTO> getEmployeesAsStream(String department) {
         try (var stream = employeeRepository.streamByDepartment(department)) {
             return stream.map(emp -> new EmployeeDTO(emp.getName(), emp.getEmail()))
