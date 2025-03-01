@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by IntelliJ IDEA.
@@ -39,5 +40,13 @@ public class EmployeeService {
     // Get Employees as Projection
     public List<EmployeeProjection> getEmployeesAsProjection(String department) {
         return employeeRepository.findByDepartmentOrderByNameAsc(department);
+    }
+
+    // Get Employees as Stream
+    public List<EmployeeDTO> getEmployeesAsStream(String department) {
+        try (var stream = employeeRepository.streamByDepartment(department)) {
+            return stream.map(emp -> new EmployeeDTO(emp.getName(), emp.getEmail()))
+                    .collect(Collectors.toList());
+        }
     }
 }
