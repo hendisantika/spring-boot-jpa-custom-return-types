@@ -2,6 +2,7 @@ package id.my.hendisantika.customreturntypes.controller;
 
 import id.my.hendisantika.customreturntypes.dto.EmployeeDTO;
 import id.my.hendisantika.customreturntypes.entity.Employee;
+import id.my.hendisantika.customreturntypes.projection.EmployeeProjection;
 import id.my.hendisantika.customreturntypes.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,5 +40,11 @@ public class EmployeeController {
     @GetMapping("/dto")
     public List<EmployeeDTO> getEmployeesAsDTO(@RequestParam String department) {
         return employeeService.getEmployeesAsDTO(department);
+    }
+
+    // Get Employees as Projection
+    @GetMapping("/projection")
+    public List<EmployeeProjection> getEmployeesAsProjection(@RequestParam String department) {
+        return employeeService.getEmployeesAsProjection(department);
     }
 }
