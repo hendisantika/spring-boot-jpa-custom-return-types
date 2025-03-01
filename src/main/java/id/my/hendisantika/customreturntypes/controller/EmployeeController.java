@@ -47,4 +47,10 @@ public class EmployeeController {
     public List<EmployeeProjection> getEmployeesAsProjection(@RequestParam String department) {
         return employeeService.getEmployeesAsProjection(department);
     }
+
+    // Get Employees as Stream
+    @GetMapping("/stream")
+    public List<EmployeeDTO> getEmployeesAsStream(@RequestParam String department) {
+        return employeeService.getEmployeesAsStream(department);
+    }
 }
